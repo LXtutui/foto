@@ -1,5 +1,5 @@
-Webcam.attach("#camera");
 var camera = document.getElementById("webcam");
+Webcam.attach(camera);
 Webcam.set({
     width:350,
     height:300,
@@ -15,15 +15,15 @@ function tirar_foto(){
 }
 console.log('ml5 version:', ml5.version);
   
-  var classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/jBa6FHcs6//model.json',modelLoaded);
+  var classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/jBa6FHcs6/model.json',modelLoaded);
 
   function modelLoaded() {
     console.log('Model Loaded!');
   }
       
-  function check()
+  function reconhecer()
   {
-    var img = document.getElementById('captured_image');
+    var img = document.getElementById('foto_tirada');
     classifier.classify(img, gotResult);
   }
 
@@ -33,7 +33,7 @@ function gotResult(error, results) {
     console.error(error);
   } else {
     console.log(results);
-    document.getElementById("resultObjectName").innerHTML = results[0].label;
-    document.getElementById("resultObjectAccuracy").innerHTML = results[0].confidence.toFixed(3);
+    document.getElementById("resultado").innerHTML = results[0].label;
+    document.getElementById("precisao").innerHTML = results[0].confidence.toFixed(3);
   }
 }

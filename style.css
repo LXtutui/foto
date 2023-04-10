@@ -1,0 +1,12 @@
+body{
+    background-color:rgb(137, 172, 172);
+}
+b{
+    color:rgb(197, 255, 255);
+    text-shadow: 2px 1px black;
+}
+#webcam{
+    border: 5px double black ;
+    width: 350px;
+    height: 300px;
+}
